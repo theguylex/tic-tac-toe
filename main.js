@@ -16,7 +16,16 @@ let winningCombinations = [
 
 function checkForWinner() {
     winningCombinations.forEach(function(combination) {
-        let check = combination.every()
+        let check = combination.every(idx => cells[idx].innerText.trim() == currentPlayer)
+        if(check) {
+            highlightCells(combination)
+        }
+    })
+}
+
+function highlightCells(combination) {
+    combination.forEach(function(idx) {
+        cells[idx].classList.add("highlight")
     })
 }
 
